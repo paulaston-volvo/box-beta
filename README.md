@@ -174,4 +174,5 @@ Again, if it fails to connect at any point in this more than 5 times, it will re
 
 ## The lights 
 
+![lights](https://github.com/paulaston-volvo/box-beta/blob/master/lights.png?raw=true)
 
