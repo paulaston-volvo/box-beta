@@ -308,6 +308,10 @@ Again, if it fails to connect at any point in this more than 5 times, it will re
  - Check the antenna is securely fitted. 
  - Check if something has changed in the backend.
  - Check the credit in the SIM
- 
+ - Flash the simtest sketch to the board (https://github.com/paulaston-volvo/box-beta/blob/master/simtest/simtest.ino) and check that you are able to connect to the network, and that you can activate GPRS
+ 	- If you can, then the problem most likely lies with the backend somewhere
+	- If you can't then the problem is with:
+		- The SIM
+		- The hardware (if this is the case, try a new Adafruit Fona board)
  
 
