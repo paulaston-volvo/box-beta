@@ -131,7 +131,12 @@ Navigate down to
 char id[9] = "locker2";
 ```
 
-And change the locker ID to match the box (range 1-5)
+And change the locker ID to match the box 
+- locker881801
+- locker169872
+- locker439243
+- locker734714
+- locker948515
 
 Go to Tools > Serial Monitor and select. Make sure you set it to Baudrate 115200 & Both NL & CR
 
