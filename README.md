@@ -128,7 +128,7 @@ Download and open the "box_monitor_beta.ino" in the Arduino IDE: https://github.
 Navigate down to
 ```
 //Box ID
-char id[9] = "locker881801";
+char id[13] = "locker881801"
 ```
 
 And change the locker ID to match the box 
@@ -277,4 +277,17 @@ Again, if it fails to connect at any point in this more than 5 times, it will re
 ## The lights 
 
 ![lights](https://github.com/paulaston-volvo/box-beta/blob/master/lights.png?raw=true)
+
+## Troubleshooting
+
+**The box doesn't seem to work after I unplug my laptop**
+Sometime unplugging the serial monitor can screw things up. Hit the reset button
+
+**The box seems to keep cycling and never sends**
+- Check that the GSM antenna is firmly attached
+- It could be that the small battery is depleted - it needs this for the power spike when sending _even with the big battery plugged in_. See below.
+
+**There is a permant red light**
+ - The small battery could be depleted. 
+ 
 
