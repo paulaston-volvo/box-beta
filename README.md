@@ -123,16 +123,16 @@ Click to Tick icon in the top left to validate the code, when that comes back ok
 
 ## Installing the Box Box software
 
-Download and open the "box_monitor_beta.ino" in the Arduino IDE: https://github.com/paulaston-volvo/box-beta/blob/master/box_monitor_beta.ino
+Download and open the "box_monitor_beta.ino" in the Arduino IDE: https://github.com/paulaston-volvo/box-beta/blob/master/box_monitor_beta/box_monitor_beta.ino
 
 Navigate down to
 ```
 //Box ID
-char id[9] = "locker2";
+char id[9] = "locker881801";
 ```
 
 And change the locker ID to match the box 
-- locker881801
+
 - locker169872
 - locker439243
 - locker734714
@@ -156,5 +156,22 @@ The software will flash to the board and it will run through the setup process.
     - If error, try again
     - If succesfull, set green light and wait for box to open or close
 
+
+## Operating sequence
+
+When the box boots, it goes through the sequence above until it can successfully send a status update to the server. If it fails to send 5 times it will reboot itself and try to reconnect. If it is stuck in the bootup sequence, press the reset button on the Adafruit board. 
+
+![reset](https://cdn-learn.adafruit.com/assets/assets/000/030/531/large1024/adafruit_products_3027_top_ORIG.jpg?1455136926)
+
+It's the tiny push button at the bottom left above the 3V pin. 
+
+Once the box is set it listens for the lid to open or close. On Open it will collect the sensor data, parse it as JSON and send it to the server. When the lid closes it will do the same, if the box is loaded it will send that information. 
+
+It will also send an update to the server every 9 minutes. 
+
+Again, if it fails to connect at any point in this more than 5 times, it will reboot and try again. Sometimes it may take multiple reboots (a few minutes), but 95% of the time this will sort the problem. 
+
+
+## The lights 
 
 
