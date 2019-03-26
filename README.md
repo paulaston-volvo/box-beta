@@ -54,4 +54,72 @@ Plug in the batteries and the GSM antenna and youre done!
 
  - The small battery may not have a full charge which will affect the ability to send data, but when the board is plugged into your laptop to load the programme, it should give it enough boost.
  -  The big battery will only have a 75% charge when you buy it. Top it up from a phone charger plugged into the wall (not a laptop, it takes ages.)
+ 
+ # Software installation
+
+##
+
+### Arduino IDE
+First install the Arduino IDE on your machine: http://www.arduino.cc/en/Main/Software
+
+After you have downloaded and installed the latest version of Arduino IDE, you will need to start the IDE and navigate to the Preferences menu.
+
+![Prefs](https://cdn-learn.adafruit.com/assets/assets/000/025/281/large1024/flora_Screen_Shot_2015-05-07_at_9.07.21_AM.png?1431004060)
+
+We will be adding a URL to the new Additional Boards Manager URLs option. The list of URLs is comma separated, and you will only have to add each URL once. New Adafruit boards and updates to existing boards will automatically be picked up by the Board Manager each time it is opened. The URLs point to index files that the Board Manager uses to build the list of available & installed boards.
+
+To find the most up to date list of URLs you can add, you can visit the list of third party board URLs on the Arduino IDE wiki. We will only need to add one URL to the IDE in this example, but you can add multiple URLS by separating them with commas. Copy and paste the link below into the Additional Boards Manager URLs option in the Arduino IDE preferences.
+
+https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+
+### Libraries
+
+There all also a number of Libraries you'll need to install that run the sensors, JSON package and other things. These are all in https://github.com/paulaston-volvo/box-beta/tree/master/Libraries
+
+A guide to installation is here: https://www.arduino.cc/en/guide/libraries
+
+After you've installed everything, _close and restart the IDE_.
+
+### Using with Arduino IDE 
+Since the Feather 32u4 uses an ATmega32u4 chip running at 8 MHz, you can pretty easily get it working with the Arduino IDE. 
+
+Now that you have added the appropriate URLs to the Arduino IDE preferences, you can open the Boards Manager by navigating to the Tools->Board menu.
+
+![Board](https://cdn-learn.adafruit.com/assets/assets/000/050/496/large1024/adafruit_products_bsp.png?1516824755)
+
+Once the Board Manager opens, click on the category drop down menu on the top left hand side of the window and select Contributed. You will then be able to select and install the boards supplied by the URLs added to the prefrences. In the example below, we are installing support for Adafruit AVR Boards, but the same applies to all boards installed with the Board Manager.
+
+Next, quit and reopen the Arduino IDE to ensure that all of the boards are properly installed. You should now be able to select and upload to the new boards listed in the Tools->Board menu.
+
+![Board](https://cdn-learn.adafruit.com/assets/assets/000/028/442/large1024/microcomputers_featherselect.gif?1447995225)
+
+### Blink
+Run a test program.
+
+Plug in the Feather 32u4 and wait for it to be recognized by the OS (just takes a few seconds). It will create a serial/COM port, you can now select it from the dropdown, it'll even be 'indicated' as Feather 32u4!
+
+![Board](https://cdn-learn.adafruit.com/assets/assets/000/028/443/large1024/microcomputers_featherport.png?1446677577)
+
+Go to File > New and then copy in the code below. 
+
+```
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin 13 as an output.
+  pinMode(13, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);              // wait for a second
+  digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);              // wait for a second
+}
+```
+
+Click to Tick icon in the top left to validate the code, when that comes back okay, click the Arrow icon to send it to the board. You'll see the blink rate on the inbuilt LED in board change. Great success!
+ 
+
+
 
