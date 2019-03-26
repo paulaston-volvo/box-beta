@@ -47,7 +47,7 @@
     DallasTemperature sensor_outbox(&oneWire_out);
 
 //Box ID
-char id[9] = "locker881801";
+char id[13] = "locker881801";
 
 //Set up reed switch 
 int switchReed=A5;
