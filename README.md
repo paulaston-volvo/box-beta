@@ -237,6 +237,27 @@ This is the data that it sends. You can see here if the sensors are working prop
 - lidopen: false = closed, true = open
 - loaded: false = nothing in there, true = loaded
 
+```
+	---> AT+HTTPTERM
+	<--- ERROR
+	---> AT+HTTPINIT
+	<--- OK
+	---> AT+HTTPPARA="CID"
+	<--- OK
+	---> AT+HTTPPARA="UA"
+	<--- OK
+	---> AT+HTTPPARA="URL"
+	<--- OK
+	---> AT+HTTPPARA="CONTENT"
+	<--- OK
+	---> AT+HTTPDATA=102,10000
+	<--- DOWNLOAD
+	<--- OK
+	---> AT+HTTPACTION=1
+	<--- OK
+Status: 200
+```
+Data succesfully sent. If it can't send, it will try again until it does. 
 
 ## Operating sequence
 
