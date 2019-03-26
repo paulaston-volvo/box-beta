@@ -280,14 +280,34 @@ Again, if it fails to connect at any point in this more than 5 times, it will re
 
 ## Troubleshooting
 
+**In general**
+- Try the reset button.
+- Unlug both batteries for 20 seconds and reconnect.
+- Do the above, then flash the Blink sketch above before re-flashingt the box software (like reformatting the thing)
+
 **The box doesn't seem to work after I unplug my laptop**
-Sometime unplugging the serial monitor can screw things up. Hit the reset button
+- Sometime unplugging the serial monitor can screw things up. Hit the reset button
 
 **The box seems to keep cycling and never sends**
 - Check that the GSM antenna is firmly attached
 - It could be that the small battery is depleted - it needs this for the power spike when sending _even with the big battery plugged in_. See below.
 
-**There is a permant red light**
+**There is a permanent red light**
  - The small battery could be depleted. 
+ - Try a restart.
+ - If that doesn't fix it, plug the board into your latop for 5 mins to boost the small battery (it seems to be faster and better than the power bank) and reflash the software. 
+ 
+ **The sensors are giving bad readings or not working**
+ - Check all the connections into the box. Wires can break in the terminal block if screwed too tightly and subject to a lot of movement or pulling.
+ - Check connections from terminal block to breadboard. Something may have worked loose. 
+ 
+ **The lid opening or closing isn't detected**
+ - Check the position of the magnet and the reed switch. They need to be nice and snug together when the lid is shut.
+ 
+ **It doesn't seem to be connecting to the cloud**
+ - Check the antenna is securely fitted. 
+ - Check if something has changed in the backend.
+ - Check the credit in the SIM
+ 
  
 
