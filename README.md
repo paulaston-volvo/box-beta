@@ -155,6 +155,87 @@ The software will flash to the board and it will run through the setup process.
  - And then
     - If error, try again
     - If succesfull, set green light and wait for box to open or close
+    
+You can see this on the serial monitor: 
+
+```
+Failed to turn on GPRS. Trying again...
+	---> AT+CIPSHUT
+	<--- SHUT OK
+	---> AT+CGATT=1
+	<--- ERROR
+	---> AT+CIPSHUT
+	<--- SHUT OK
+	---> AT+CGATT=1
+	<--- ERROR
+	---> AT+CIPSHUT
+	<--- SHUT OK
+	---> AT+SAPBR=0,1
+	<--- ERROR
+```
+It will do this quite a few times. It's normal and nothing to worry about
+
+```
+Failed to turn on GPRS. Trying again...
+---> AT+CIPSHUT
+	<--- SHUT OK
+	---> AT+CGATT=1
+	<--- ERROR
+	---> AT+CIPSHUT
+	<--- SHUT OK
+	---> AT+CGATT=1
+	<--- OK
+	---> AT+SAPBR=3,1,"CONTYPE","GPRS"
+	<--- OK
+	---> AT+SAPBR=3,1,"APN","TM"
+	<--- OK
+	---> AT+CSTT="TM","",""
+	<--- OK
+	---> AT+SAPBR=3,1,"USER",""
+	<--- OK
+	---> AT+SAPBR=3,1,"PWD",""
+	<--- OK
+	---> AT+SAPBR=1,1
+	<--- OK
+	---> AT+CIICR
+	<--- OK
+BOX IS CLOSED
+	---> AT+CIPSHUT
+	<--- SHUT OK
+	---> AT+CGATT=1
+	<--- OK
+	---> AT+SAPBR=3,1,"CONTYPE","GPRS"
+	<--- OK
+	---> AT+SAPBR=3,1,"APN","TM"
+	<--- OK
+	---> AT+CSTT="TM","",""
+	<--- OK
+	---> AT+SAPBR=3,1,"USER",""
+	<--- OK
+	---> AT+SAPBR=3,1,"PWD",""
+	<--- OK
+	---> AT+SAPBR=1,1
+	<--- ERROR
+```
+Succesfully booted and connected
+
+```
+{
+  "thingId": "locker2",
+  "batteryStatus": 6.593555,
+  "intemp": 85,
+  "outtemp": 85,
+  "lidOpen": false,
+  "loaded": false
+}
+```
+This is the data that it sends. You can see here if the sensors are working properly. (Note: intemp & outtemp 85, means "sensors okay. No reading taken yet. This is okay)
+- thingId: Locker ID
+- batteryStatus: battery voltage
+- intemp: temperature in the box
+- outtemp: temperature outside the box
+- lidopen: false = closed, true = open
+- loaded: false = nothing in there, true = loaded
 
 
 ## Operating sequence
