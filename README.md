@@ -121,5 +121,35 @@ void loop() {
 Click to Tick icon in the top left to validate the code, when that comes back okay, click the Arrow icon to send it to the board. You'll see the blink rate on the inbuilt LED in board change. Great success!
  
 
+## Installing the Box Box software
+
+Download and open the "box_monitor_beta.ino" in the Arduino IDE: https://github.com/paulaston-volvo/box-beta/blob/master/box_monitor_beta.ino
+
+Navigate down to
+```
+//Box ID
+char id[9] = "locker2";
+```
+
+And change the locker ID to match the box (range 1-5)
+
+Go to Tools > Serial Monitor and select. Make sure you set it to Baudrate 115200 & Both NL & CR
+
+![monitor](https://hackster.imgix.net/uploads/attachments/235973/Baud_rates_and_BothNLCR-1.png?auto=compress%2Cformat&w=680&h=510&fit=max)
+
+Click the arrow icon to send it to the board. 
+
+The software will flash to the board and it will run through the setup process. 
+ - connect to the GSM network
+ - Enable GPRS (data connection)
+    - Both of these may take a while  
+ - Get first set of data from sensors
+ - Process as JSON
+ - Send to server
+ - Get response
+ - And then
+    - If error, try again
+    - If succesfull, set green light and wait for box to open or close
+
 
 
