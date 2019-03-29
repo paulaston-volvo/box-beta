@@ -46,8 +46,12 @@
     DallasTemperature sensor_inbox(&oneWire_in);
     DallasTemperature sensor_outbox(&oneWire_out);
 
-//Box ID
-char id[13] = "locker881801";
+//Box ID - Remember to change this depending on the box
+//char id[13] = "locker881801";
+//char id[13] = "locker169872";
+//char id[13] = "locker439243";
+char id[13] = "locker734714";
+//char id[13] = "locker948515";
 
 //Set up reed switch 
 int switchReed=A5;
@@ -171,7 +175,7 @@ void loop(void)
      // Serial.print("VBat: " ); Serial.println(measuredvbat);
      batteryLevel = (measuredvbat);
 
-    //Get and set the box temperature
+    //Get and get the box temperature
     sensor_inbox.requestTemperatures();
     sensor_outbox.requestTemperatures();
     float tempCin = sensor_inbox.getTempCByIndex(0);
@@ -208,12 +212,12 @@ void loop(void)
     //Loaded
     if (digitalRead(pressSensor)==1){
       boxLoaded=true;
-      digitalWrite(okayPin, HIGH);
+      //digitalWrite(okayPin, HIGH);
     }
     //Not loaded
     else{
       boxLoaded=false;
-      digitalWrite(okayPin, LOW);
+      //digitalWrite(okayPin, LOW);
     } 
 
     //Send update at interval
@@ -280,6 +284,7 @@ void enableGPRS(){
       Serial.println(F("GPRS is on.")); 
       digitalWrite(failPin, LOW);
       digitalWrite(gprsPin, HIGH);
+      
       break;
     }
   }
@@ -291,7 +296,7 @@ void enableGPRS(){
 //Send all current data
 void sendCurrentStatus(){
 
-  
+  digitalWrite(gprsPin, HIGH);
   //Get network time and add 20** to year 
    /*if (!fona.enableNTPTimeSync(true, F("pool.ntp.org")))
    Serial.println(F("Failed to enable"));
@@ -383,7 +388,6 @@ void sendCurrentStatus(){
   sendFail = false;
   //Serial.print("Length: ");
   //Serial.println(length);
-  signalStrength();
   Serial.print(F("freeMemory()="));
   Serial.println(freeMemory());
   digitalWrite(failPin, LOW);
@@ -394,6 +398,10 @@ void sendCurrentStatus(){
   digitalWrite(okayPin, HIGH);
   delay(500);
   digitalWrite(okayPin, LOW);
+  delay(500);
+  digitalWrite(okayPin, HIGH);
+  digitalWrite(gprsPin, LOW);
+  signalStrength();
   }
 }
 
