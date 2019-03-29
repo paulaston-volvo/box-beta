@@ -69,8 +69,8 @@ bool doorStatus;
 bool  boxLoaded;
 float batteryLevel;
 
-//Intervals
-int intervalTimer=60000;
+//Intervals - movied into function due to issue with long integers
+//int intervalTimer=1800000;
 
 //Events
 boolean boxClosedEventExecuted = false;
@@ -260,9 +260,12 @@ void boxClosedEvent(){
 //Send update at timed intervals
 void intervalUpdate(){ 
   static unsigned long lastTime = 0;
-  const long interval = intervalTimer;
+  const long interval = 1800000;
   unsigned long now = millis();
-
+  //Debugging stuff
+  /*Serial.println(interval);
+  Serial.print("now: ");
+  Serial.println(now);*/
   if ( now - lastTime > interval) {
       lastTime = now;
         enableGPRS();
