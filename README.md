@@ -285,6 +285,9 @@ Again, if it fails to connect at any point in this more than 5 times, it will re
 - Unlug both batteries for 20 seconds and reconnect.
 - Do the above, then flash the Blink sketch above before re-flashingt the box software (like reformatting the thing)
 
+**Green and Red light. Not blinking**
+The small battery voltage is too low and it needs to be powered up via USB cable from laptop, or the powerbank
+
 **The box doesn't seem to work after I unplug my laptop**
 - Sometime unplugging the serial monitor can screw things up. Hit the reset button
 
